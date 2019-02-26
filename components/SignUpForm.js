@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, FormGroup, Button } from '@material-ui/core';
+import { TextField as Text, FormGroup, Button } from '@material-ui/core';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
@@ -7,6 +7,10 @@ const StyledForm = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const TextField = styled(Text)`
+  margin-bottom: 15px !important;
 `;
 
 function SignUpForm() {
