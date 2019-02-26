@@ -10,7 +10,7 @@ const ms = require('ms');
 const passport = require('passport');
 
 process.on('unhandledRejection', reason => {
-  console.error('Error:', reason);
+  console.error(reason);
   process.exit(1);
 });
 
@@ -18,6 +18,7 @@ process.on('unhandledRejection', reason => {
 // other code below might make use of environment variables
 // So the use of `dotenv` is necessary as early as possible
 dotenv.config();
+require('./services/passport');
 
 const db = require('./config/db');
 (async function createConnectionToDB() {
@@ -64,7 +65,13 @@ app.prepare().then(() => {
       values: [sponsor_id, phone, name, password]
     });
     const response = queryResponse.rows[0];
-    return res.redirect('/dashboard');
+    const { person_id: user_id } = response;
+    req.logIn(user_id, err => {
+      if (err) {
+        throw new Error(err);
+      }
+      return res.redirect('/dashboard');
+    });
   });
 
   server.get('*', (req, res, next) => {
