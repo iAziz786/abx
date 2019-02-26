@@ -25,14 +25,12 @@ function SignUpForm() {
           name={'password'}
           variant={'outlined'}
         />
-      </FormGroup>
-      <FormGroup>
         <TextField label={'Name'} name={'name'} variant={'outlined'} />
         <TextField label={'Phone'} name={'phone'} variant={'outlined'} />
+        <Button type={'submit'} color={'primary'} variant={'contained'}>
+          Submit
+        </Button>
       </FormGroup>
-      <Button type={'submit'} color={'primary'} variant={'contained'}>
-        Submit
-      </Button>
     </StyledForm>
   );
 }
