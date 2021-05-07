@@ -11,7 +11,7 @@
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "body-parser": "^1.18.3",
     "connect-pg-simple": "^5.0.0",
     "cookie-parser": "^1.4.4",
